@@ -3,7 +3,7 @@ This file contains tests for functions in support.py.
 """
 
 import unittest
-from support import Position, Direction, Board
+from client.support import Position, Direction, Board
 
 
 class TestPosition(unittest.TestCase):

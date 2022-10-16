@@ -3,8 +3,8 @@ This file contains tests for functions in support.py.
 """
 
 import unittest
-from support import Board
-from player import Player
+from client.support import Board
+from client.player import Player
 
 
 class TestPlayer(unittest.TestCase):

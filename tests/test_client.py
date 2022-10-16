@@ -3,7 +3,7 @@ This file contains tests for functions in client.py
 """
 
 import unittest
-import client
+from client import client
 
 
 class TestPrepareResponse(unittest.TestCase):

@@ -1,6 +1,5 @@
 from support import Board, Position
-from queue import PriorityQueue
-from typing import Optional, List, Tuple, Iterator, Dict
+from typing import List, Tuple
 
 MAX_DEPTH: int = 10
 CORNERS = [
