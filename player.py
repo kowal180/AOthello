@@ -2,14 +2,13 @@ from support import Board, Position
 from queue import PriorityQueue
 from typing import Optional, List, Tuple, Iterator, Dict
 
-MAX_DEPTH: int = 5
+MAX_DEPTH: int = 10
 CORNERS = [
     Position(0, 0),
     Position(0, 7),
     Position(7, 7),
     Position(7, 0)
 ]
-CORNER_REWARD = 100
 X_SQUARES = [
     Position(1, 0),
     Position(1, 1),
@@ -24,11 +23,12 @@ X_SQUARES = [
     Position(6, 7),
     Position(7, 6)
 ]
-X_SQUARE_REWARD = -15
 EDGES = [Position(row, col) for row in range(0, 7) for col in [0, 7]] + [
     Position(row, col) for row in [0, 7] for col in range(0, 7)]
+CORNER_REWARD = 100
+X_SQUARE_REWARD = -10
 EDGES_REWARD = 5
-NUM_MOVES_MULTIPLIER = 3
+NUM_MOVES_MULTIPLIER = 5
 REWARD_SCORE_DIFF = 2
 
 
@@ -109,7 +109,7 @@ class Player:
             )
             # If not at max_depth
             if not stop:
-                value += 1 / len(opponent_moves) * sum([
+                value += max([
                     self.compute_val(move, new_board, depth, opponent)
                     for move in opponent_moves
                 ])
